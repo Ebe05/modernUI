@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #ff9a9e 10%, #f6416c 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* assigning position of first and last circle in background */
+body::before,
+body::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(135deg, #f6416c 10%, #ff9a9e 100%);
+}
+
+/* revealing the circles in the background */
+body::before {
+    clip-path: circle(30% at left 20%);
+
+}
+
+body::after {
+    clip-path: circle(25% at right 80%);
+
+}
+
+main {
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 5;
+    width: 90%;
+    height: 90vh;
+    backdrop-filter: blur(5px);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    font-weight: 500;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}
+
+.content {
+    line-height: 1.5;
+    width: 40%;
+}
+
+.brand {
+    width: 20%;
+    font-weight: 700;
+}
+
+
+
+.login button {
+    background: linear-gradient(135deg, #ff9a9e 10%, #f6416c 100%);
+    color: #f2f2f2;
+    padding: 6px 12px;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.login button:nth-of-type(1) {
+    margin-right: 0.5rem;
+}
+
+
+.footer i {
+    margin-left: 1rem;
+}
+
+a:hover {
+    color: #f2f2f2;
+    transform: translateY(-3px);
+    transition: all 0.2s ease-out;
+}
+
+.login button:hover {
+    cursor: pointer;
+    background: #f6416c;
+    transition: all 0.2s ease-out;
+}
+
+.toggler {
+    display: none;
+    cursor: pointer;
+}
+
+.toggler:hover {
+    cursor: pointer;
+}
+
+@media (max-width:768px) {
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        min-height: 92vh;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        background-color: #ff9a9e;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .toggler {
+
+        display: block;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    main {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+    }
+}
